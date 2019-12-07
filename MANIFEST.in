@@ -1,2 +1,3 @@
 include versioneer.py
 include src/vws_cli/_version.py
+include src/vws_auth_tools/_version.py
