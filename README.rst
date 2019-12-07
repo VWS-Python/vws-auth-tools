@@ -1,13 +1,27 @@
 |Build Status| |codecov|
 
-vws-cli
-=======
+VWS Auth Tools
+==============
 
-A CLI for Vuforia.
+Authentication and authorization tools for interacting with the Vuforia Web Services (VWS) API.
 
-This is a work in progress.
+Installation
+------------
 
-.. |Build Status| image:: https://travis-ci.com/adamtheturtle/vws-cli.svg?branch=master
-   :target: https://travis-ci.com/adamtheturtle/vws-cli
-.. |codecov| image:: https://codecov.io/gh/adamtheturtle/vws-cli/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/adamtheturtle/vws-cli
+.. code:: sh
+
+   pip install vws-auth-tools
+
+Usage
+-----
+
+.. code:: python
+
+   from vws_auth_tools import ...
+
+   pass
+
+.. |Build Status| image:: https://travis-ci.com/adamtheturtle/vws-auth-tools.svg?branch=master
+   :target: https://travis-ci.com/adamtheturtle/vws-auth-tools
+.. |codecov| image:: https://codecov.io/gh/adamtheturtle/vws-auth-tools/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/adamtheturtle/vws-auth-tools
