@@ -1,5 +1,5 @@
-Contributing to VWS Auth Tools
-==============================
+Contributing to |project|
+=========================
 
 .. contents::
 

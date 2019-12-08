@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Configuration for Sphinx.
 """
@@ -7,32 +6,39 @@ Configuration for Sphinx.
 # pylint: disable=invalid-name
 
 import datetime
-import os
-import sys
 
-import vws
+import vws_auth_tools
 
-sys.path.insert(0, os.path.abspath('.'))
+project = 'VWS-Auth-Tools'
+author = 'Adam Dangoor'
 
 extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
+    'sphinx_autodoc_typehints',
+    'sphinx_substitution_extensions',
     'sphinxcontrib.spelling',
-    'sphinx_click.ext',
 ]
 
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
 
-project = 'VWS Auth Tools'
 year = datetime.datetime.now().year
-copyright = f'{year}, Adam Dangoor'  # pylint: disable=redefined-builtin
-author = 'Adam Dangoor'
+copyright = f'{year}, {author}'  # pylint: disable=redefined-builtin
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-version = vws.__version__
+version = vws_auth_tools.__version__
 release = version.split('+')[0]
+
+substitutions = [
+    ('|release|', release),
+    ('|github-owner|', 'adamtheturtle'),
+    ('|github-repository|', 'vws-auth-tools'),
+]
 
 language = None
 
@@ -52,16 +58,25 @@ html_sidebars = {
     ],
 }
 
-project_name_no_spaces = ''.join(project.split())
 # Output file base name for HTML help builder.
-htmlhelp_basename = f'{project_name_no_spaces}doc'
+htmlhelp_basename = 'VWSPYTHONdoc'
 autoclass_content = 'init'
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.7', None),
 }
 nitpicky = True
 warning_is_error = True
-nitpick_ignore = []
+nitpick_ignore = [
+    ('py:exc', 'RetryError'),
+    # See https://bugs.python.org/issue31024 for why Sphinx cannot find this.
+    ('py:class', 'typing.Tuple'),
+    ('py:class', 'typing.Optional'),
+    ('py:class', '_io.BytesIO'),
+    ('py:class', 'docker.types.services.Mount'),
+    # Requests documentation exposes ``requests.Response``, not
+    # ``requests.models.response``.
+    ('py:class', 'requests.models.Response'),
+]
 
 html_show_copyright = False
 html_show_sphinx = False
@@ -93,3 +108,7 @@ linkcheck_ignore = [
 spelling_word_list_filename = '../../spelling_private_dict.txt'
 
 autodoc_member_order = 'bysource'
+
+rst_prolog = f"""
+.. |project| replace:: {project}
+"""

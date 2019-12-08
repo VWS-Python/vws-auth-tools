@@ -1,5 +1,5 @@
-VWS Auth Tools
-==============
+|project|
+=========
 
 Installation
 ------------

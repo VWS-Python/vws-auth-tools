@@ -7,6 +7,8 @@ import email.utils
 import hashlib
 import hmac
 
+from ._version import get_versions
+
 
 def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
     """
@@ -82,3 +84,7 @@ def authorization_header(  # pylint: disable=too-many-arguments
     )
     auth_header = f'VWS {access_key}:{signature.decode()}'
     return auth_header
+
+
+__version__ = get_versions()['version']  # type: ignore
+del get_versions

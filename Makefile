@@ -5,6 +5,7 @@ include lint.mk
 # Treat Sphinx warnings as errors
 SPHINXOPTS := -W
 
+# "shellcheck" is not here because there are no ``.sh`` files.
 .PHONY: lint
 lint: \
     check-manifest \
@@ -16,7 +17,6 @@ lint: \
     pip-extra-reqs \
     pip-missing-reqs \
     pyroma \
-    shellcheck \
     spelling \
     vulture \
     pylint \

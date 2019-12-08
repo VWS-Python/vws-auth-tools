@@ -1,3 +1,3 @@
 """
-XXX
+Tests for authorization tools.
 """
