@@ -1,5 +1,5 @@
 """
-XXX
+Tests for authorization tools.
 """
 
 import datetime
