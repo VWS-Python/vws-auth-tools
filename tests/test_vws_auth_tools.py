@@ -9,7 +9,7 @@ from freezegun import freeze_time
 
 import vws_auth_tools
 
-def test_rfc_1123_date():
+def test_rfc_1123_date() -> None:
     """
     XXX
     """
@@ -29,9 +29,15 @@ def test_rfc_1123_date():
 
     assert result == 'Thu, 05 Feb 2015 14:51:12 GMT'
 
-def test_authorization_header():
+def test_authorization_header() -> None:
     """
     XXX
     """
-    pass
+    access_key = 'my_access_key'
+    secret_key = 'my_secret_key'
+    method = 'HTTPMETHOD'
+    content = b'some_bytes'
+    content_type = 'some/content/type'
+    date = 'some_date_string'
+    request_path = '/foo'
 
