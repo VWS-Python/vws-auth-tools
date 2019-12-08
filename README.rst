@@ -19,9 +19,38 @@ Usage
 
 .. code:: python
 
-   from vws_auth_tools import ...
+   import requests
+   from vws_auth_tools import authorization_header, rfc_1123_date
 
-   pass
+   target_id = '...'
+   request_path = f'/duplicates/{target_id}'
+   content = b''
+   method = 'GET'
+   date = rfc_1123_date()
+   authorization_header = authorization_header(
+       access_key='my_access_key',
+       secret_key='my_secret_key',
+       method=method,
+       content=content,
+       content_type='',
+       date=date,
+       request_path=request_path,
+   )
+
+   headers = {'Authorization': authorization_string, 'Date': date}
+
+   request = requests.Request(
+        method=method,
+        url=urljoin(base='https://vws.vuforia.com', url=request_path),
+        headers=headers,
+        data=content,
+    )
+
+    prepared_request = request.prepare()
+    session = requests.Session()
+    response = session.send(request=prepared_request)
+    assert response.status_code == 200
+
 
 Full Documentation
 ------------------
