@@ -39,16 +39,13 @@ Usage
 
    headers = {'Authorization': authorization_string, 'Date': date}
 
-   request = requests.Request(
+   response = requests.request(
         method=method,
         url=urljoin(base='https://vws.vuforia.com', url=request_path),
         headers=headers,
         data=content,
     )
 
-    prepared_request = request.prepare()
-    session = requests.Session()
-    response = session.send(request=prepared_request)
     assert response.status_code == 200
 
 
