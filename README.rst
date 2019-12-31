@@ -1,4 +1,4 @@
-|Build Status| |codecov| |Updates| |PyPI| |Documentation Status|
+|Build Status| |codecov| |PyPI| |Documentation Status|
 
 VWS Auth Tools
 ==============
@@ -58,8 +58,6 @@ See the `full documentation <https://vws-auth-tools.readthedocs.io/en/latest>`__
    :target: https://travis-ci.com/adamtheturtle/vws-auth-tools
 .. |codecov| image:: https://codecov.io/gh/adamtheturtle/vws-auth-tools/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/adamtheturtle/vws-auth-tools
-.. |Updates| image:: https://pyup.io/repos/github/adamtheturtle/vws-auth-tools/shield.svg
-   :target: https://pyup.io/repos/github/adamtheturtle/vws-auth-tools/
 .. |Documentation Status| image:: https://readthedocs.org/projects/vws-auth-tools/badge/?version=latest
    :target: https://vws-auth-tools.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
