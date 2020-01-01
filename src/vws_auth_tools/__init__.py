@@ -6,9 +6,6 @@ import base64
 import email.utils
 import hashlib
 import hmac
-from pathlib import Path
-
-from setuptools_scm import get_version
 
 
 def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
