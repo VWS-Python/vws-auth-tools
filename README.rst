@@ -54,10 +54,10 @@ Full Documentation
 
 See the `full documentation <https://vws-auth-tools.readthedocs.io/en/latest>`__.
 
-.. |Build Status| image:: https://travis-ci.com/adamtheturtle/vws-auth-tools.svg?branch=master
-   :target: https://travis-ci.com/adamtheturtle/vws-auth-tools
-.. |codecov| image:: https://codecov.io/gh/adamtheturtle/vws-auth-tools/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/adamtheturtle/vws-auth-tools
+.. |Build Status| image:: https://travis-ci.com/VWS-Python/vws-auth-tools.svg?branch=master
+   :target: https://travis-ci.com/VWS-Python/vws-auth-tools
+.. |codecov| image:: https://codecov.io/gh/VWS-Python/vws-auth-tools/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/VWS-Python/vws-auth-tools
 .. |Documentation Status| image:: https://readthedocs.org/projects/vws-auth-tools/badge/?version=latest
    :target: https://vws-auth-tools.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
