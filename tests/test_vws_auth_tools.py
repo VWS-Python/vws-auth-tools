@@ -36,7 +36,7 @@ def test_rfc_1123_date() -> None:
     with freeze_time(frozen_time):
         result = vws_auth_tools.rfc_1123_date()
 
-    assert result == 'Thu, 05 Feb 2015 14:51:12 GMT'
+    assert result == 'Thu, 05 Feb 2015 14:55:12 GMT'
 
 
 def test_authorization_header() -> None:
