@@ -4,7 +4,7 @@ Tests for authorization tools.
 
 import datetime
 
-import pytz
+from backports.zoneinfo import ZoneInfo
 from freezegun import freeze_time
 
 import vws_auth_tools
@@ -22,7 +22,7 @@ def test_rfc_1123_date() -> None:
     NOTE: The date and time always refer to GMT.
     ```
     """
-    not_gmt_timezone = pytz.timezone('America/New_York')
+    not_gmt_timezone = ZoneInfo('America/New_York')
     frozen_time = datetime.datetime(
         year=2015,
         month=2,
@@ -36,7 +36,7 @@ def test_rfc_1123_date() -> None:
     with freeze_time(frozen_time):
         result = vws_auth_tools.rfc_1123_date()
 
-    assert result == 'Thu, 05 Feb 2015 14:51:12 GMT'
+    assert result == 'Thu, 05 Feb 2015 14:55:12 GMT'
 
 
 def test_authorization_header() -> None:

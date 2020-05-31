@@ -1,6 +1,7 @@
 PyGithub==1.51
 Sphinx-Substitution-Extensions==2020.5.27.0
 autoflake==1.3.1
+backports.zoneinfo==0.2.0 # This is only needed on Python < 3.9.
 check-manifest==0.42
 codecov==2.1.3 # Upload coverage data
 doc8==0.8.0
@@ -16,7 +17,6 @@ pylint==2.5.2
 pyroma==2.6
 pytest-cov==2.9.0  # Measure code coverage
 pytest==5.4.2
-pytz==2020.1
 sphinx-autodoc-typehints==1.10.3
 sphinx-click==2.3.2
 sphinx==3.0.4
