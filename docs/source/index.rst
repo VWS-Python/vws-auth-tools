@@ -8,7 +8,7 @@ Installation
 
    pip install vws-auth-tools
 
-This is tested on Python 3.8+.
+This is tested on Python 3.9+.
 
 Example usage
 -------------
