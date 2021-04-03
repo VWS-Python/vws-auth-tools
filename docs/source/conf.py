@@ -44,18 +44,6 @@ language = None
 # The name of the syntax highlighting style to use.
 pygments_style = 'sphinx'
 
-# Custom sidebar templates, must be a dictionary that maps document names
-# to template names.
-#
-# This is required for the alabaster theme
-# refs: http://alabaster.readthedocs.io/en/latest/installation.html#sidebars
-html_sidebars = {
-    '**': [
-        'relations.html',  # needs 'show_related': True theme option to display
-        'searchbox.html',
-    ],
-}
-
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'VWSAUTHTOOLSdoc'
 autoclass_content = 'init'
