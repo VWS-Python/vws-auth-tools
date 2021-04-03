@@ -43,7 +43,6 @@ language = None
 
 # The name of the syntax highlighting style to use.
 pygments_style = 'sphinx'
-html_theme = 'alabaster'
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -58,40 +57,21 @@ html_sidebars = {
 }
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'VWSPYTHONdoc'
+htmlhelp_basename = 'VWSAUTHTOOLSdoc'
 autoclass_content = 'init'
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.7', None),
+    'python': ('https://docs.python.org/3.9', None),
 }
 nitpicky = True
 warning_is_error = True
-nitpick_ignore = [
-    ('py:exc', 'RetryError'),
-    # See https://bugs.python.org/issue31024 for why Sphinx cannot find this.
-    ('py:class', 'typing.Tuple'),
-    ('py:class', 'typing.Optional'),
-    ('py:class', '_io.BytesIO'),
-    ('py:class', 'docker.types.services.Mount'),
-    # Requests documentation exposes ``requests.Response``, not
-    # ``requests.models.response``.
-    ('py:class', 'requests.models.Response'),
-]
 
+html_theme = 'furo'
+html_title = project
 html_show_copyright = False
 html_show_sphinx = False
 html_show_sourcelink = False
-autoclass_content = 'both'
-
 html_theme_options = {
-    'show_powered_by': 'false',
-}
-
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'searchbox.html',
-    ],
+    'sidebar_hide_name': False,
 }
 
 # Don't check anchors because many websites use #! for AJAX magic
