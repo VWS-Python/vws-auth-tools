@@ -43,7 +43,6 @@ language = None
 
 # The name of the syntax highlighting style to use.
 pygments_style = 'sphinx'
-html_theme = 'alabaster'
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -66,21 +65,13 @@ intersphinx_mapping = {
 nitpicky = True
 warning_is_error = True
 
+html_theme = 'furo'
+html_title = project
 html_show_copyright = False
 html_show_sphinx = False
 html_show_sourcelink = False
-autoclass_content = 'both'
-
 html_theme_options = {
-    'show_powered_by': 'false',
-}
-
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'searchbox.html',
-    ],
+    'sidebar_hide_name': False,
 }
 
 # Don't check anchors because many websites use #! for AJAX magic
