@@ -1,5 +1,5 @@
 """
-Setup script for DC/OS End to End tests.
+Setup script.
 """
 
 from __future__ import annotations
