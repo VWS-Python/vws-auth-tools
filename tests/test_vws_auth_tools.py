@@ -3,8 +3,8 @@ Tests for authorization tools.
 """
 
 import datetime
+from zoneinfo import ZoneInfo
 
-from backports.zoneinfo import ZoneInfo
 from freezegun import freeze_time
 
 import vws_auth_tools
