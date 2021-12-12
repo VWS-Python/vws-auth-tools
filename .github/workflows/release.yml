@@ -41,7 +41,6 @@ jobs:
         id: commit
         with:
           commit_message: Bump CHANGELOG
-          branch: master
 
       - name: Bump version and push tag
         id: tag_version
