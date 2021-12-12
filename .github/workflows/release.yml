@@ -39,6 +39,22 @@ jobs:
           # pip-extra-reqs.
           python -m pip install --ignore-installed --upgrade --editable .[dev]
 
+      - name: "Calver calculate version"
+        uses: StephaneBour/actions-calver@master
+        id: calver
+        with:
+          date_format: "%Y.%m.%d"
+          release: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Echo next version"
+        env:
+          VERSION: ${{ steps.calver.outputs.release }}
+        run: |
+          echo "NEXT VERSION IS:"
+          echo ${VERSION}
+
       - name: "Publish a release"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
