@@ -16,6 +16,6 @@ Perform a Release
 
    .. prompt:: bash
 
-      $ gh workflow run release
+      $ gh workflow run release.yml
 
 .. _Install GitHub CLI: https://cli.github.com/manual/installation
