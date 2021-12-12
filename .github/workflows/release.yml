@@ -48,16 +48,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: "Echo next version"
-        env:
-          VERSION: ${{ steps.calver.outputs.release }}
-        run: |
-          echo "NEXT VERSION IS:"
-          echo ${VERSION}
-
       - name: "Publish a release"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NEXT_VERSION: ${{ steps.calver.outputs.release }}
         run: |
           python admin/release.py
 
