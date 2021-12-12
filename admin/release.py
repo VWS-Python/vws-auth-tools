@@ -22,6 +22,7 @@ def main() -> None:
     """
     Perform a release.
     """
+    version_str = os.environ['NEXT_VERSION']
     update_changelog(version=version_str)
 
 
