@@ -48,12 +48,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: "Publish a release"
+      - name: "Update changelog"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NEXT_VERSION: ${{ steps.calver.outputs.release }}
         run: |
           python admin/release.py
+
+      - name: "Publish a GitHub release"
+        uses: softprops/action-gh-release@v1
 
       - name: Build a binary wheel and a source tarball
         run: |

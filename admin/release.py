@@ -49,14 +49,6 @@ def main() -> None:
         full_name_or_id=github_repository_name,
     )
     update_changelog(version=version_str, github_repository=github_repository)
-    github_repository.create_git_tag_and_release(
-        tag=version_str,
-        tag_message='Release ' + version_str,
-        release_name='Release ' + version_str,
-        release_message='See CHANGELOG.rst',
-        type='commit',
-        object=github_repository.get_commits()[0].sha,
-    )
 
 
 if __name__ == '__main__':
