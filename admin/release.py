@@ -5,6 +5,7 @@ Release the next version.
 import os
 from pathlib import Path
 
+
 def update_changelog(version: str) -> None:
     """
     Add a version title to the changelog.
