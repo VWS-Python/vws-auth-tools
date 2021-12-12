@@ -79,6 +79,4 @@ autodoc_member_order = 'bysource'
 rst_prolog = f"""
 .. |project| replace:: {project}
 .. |release| replace:: {release}
-.. |github-owner| replace:: VWS-Python
-.. |github-repository| replace:: vws-auth-tools
 """
