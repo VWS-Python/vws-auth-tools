@@ -31,12 +31,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Update changelog"
-        env:
-          NEXT_VERSION: ${{ steps.calver.outputs.release }}
-        run: |
-          python admin/release.py
-
-      - name: "Update changelog"
         uses: jacobtomlinson/gha-find-replace@v2
         env:
           NEXT_VERSION: ${{ steps.calver.outputs.release }}
