@@ -31,11 +31,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Update changelog"
+        uses: jacobtomlinson/gha-find-replace@v2
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NEXT_VERSION: ${{ steps.calver.outputs.release }}
-        run: |
-          python admin/release.py
+        with:
+          find: "Next\n----"
+          replace: "Next\n----\n\n${{ env.NEXT_VERSION }}\n------------"
+          include: "CHANGELOG.rst"
+          regex: false
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         id: commit
