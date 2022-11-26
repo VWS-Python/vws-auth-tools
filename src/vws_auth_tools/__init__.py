@@ -72,13 +72,13 @@ def authorization_header(  # pylint: disable=too-many-arguments
         date,
         request_path,
     ]
-    string_to_sign = '\n'.join(components_to_sign)
+    string_to_sign = "\n".join(components_to_sign)
     signature = _compute_hmac_base64(
         key=secret_key.encode(),
         data=bytes(
             string_to_sign,
-            encoding='utf-8',
+            encoding="utf-8",
         ),
     )
-    auth_header = f'VWS {access_key}:{signature.decode()}'
+    auth_header = f"VWS {access_key}:{signature.decode()}"
     return auth_header
