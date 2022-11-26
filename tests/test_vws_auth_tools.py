@@ -22,7 +22,7 @@ def test_rfc_1123_date() -> None:
     NOTE: The date and time always refer to GMT.
     ```
     """
-    not_gmt_timezone = ZoneInfo('America/New_York')
+    not_gmt_timezone = ZoneInfo("America/New_York")
     frozen_time = datetime.datetime(
         year=2015,
         month=2,
@@ -36,7 +36,7 @@ def test_rfc_1123_date() -> None:
     with freeze_time(frozen_time):
         result = vws_auth_tools.rfc_1123_date()
 
-    assert result == 'Thu, 05 Feb 2015 14:55:12 GMT'
+    assert result == "Thu, 05 Feb 2015 14:55:12 GMT"
 
 
 def test_authorization_header() -> None:
@@ -45,13 +45,13 @@ def test_authorization_header() -> None:
     documentation. This example has been run on known-working code and so any
     refactor should continue to pass this test.
     """
-    access_key = 'my_access_key'
-    secret_key = 'my_secret_key'
-    method = 'HTTPMETHOD'
-    content = b'some_bytes'
-    content_type = 'some/content/type'
-    date = 'some_date_string'
-    request_path = '/foo'
+    access_key = "my_access_key"
+    secret_key = "my_secret_key"
+    method = "HTTPMETHOD"
+    content = b"some_bytes"
+    content_type = "some/content/type"
+    date = "some_date_string"
+    request_path = "/foo"
 
     result = vws_auth_tools.authorization_header(
         access_key=access_key,
@@ -63,4 +63,4 @@ def test_authorization_header() -> None:
         request_path=request_path,
     )
 
-    assert result == 'VWS my_access_key:8Uy6SKuO5sSBY2X8/znlPFmDF/k='
+    assert result == "VWS my_access_key:8Uy6SKuO5sSBY2X8/znlPFmDF/k="
