@@ -144,21 +144,19 @@ build-backend = "setuptools.build_meta"
 select = ["ALL"]
 
 ignore = [
-	# Ignore `one-blank-line-before-class` because it is incompatible with
-	# `no-blank-line-before-class` (D211).
-	"D203",
-	# Ignore `multi-line-summary-second-line` because it is incompatible with
-	# `multi-line-summary-first-line` (D212).
-	"D213",
-	# We ignore some docstyle errors which do not apply to Google style
-	# docstrings.
-	"D406",
-	"D407",
-	# Ignore "too-many-*" errors as they seem to get in the way more than
-	# helping.
-	"PLR0913",
-	# Allow 'assert' as we use it for tests.
-	"S101",
+    # Ignore `one-blank-line-before-class` because it is incompatible with
+    # `no-blank-line-before-class` (D211).
+    "D203",
+    # Ignore `multi-line-summary-second-line` because it is incompatible with
+    # `multi-line-summary-first-line` (D212).
+    "D213",
+    # We ignore some docstyle errors which do not apply to Google style
+    # docstrings.
+    "D406",
+    "D407",
+    # Ignore "too-many-*" errors as they seem to get in the way more than
+    # helping.
+    "PLR0913",
+    # Allow 'assert' as we use it for tests.
+    "S101",
 ]
-# We do not have summary lines, care about "mood", or need sections with
-# dash underlined titles.
