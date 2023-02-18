@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Configuration for Sphinx.
-"""
+"""Configuration for Sphinx."""
 
 # pylint: disable=invalid-name
 
@@ -26,7 +24,7 @@ templates_path = ["_templates"]
 source_suffix = ".rst"
 master_doc = "index"
 
-year = datetime.datetime.now().year
+year = datetime.datetime.now(tz=datetime.timezone.utc).year
 project_copyright = f"{year}, {author}"
 
 # The version info for the project you're documenting, acts as replacement for

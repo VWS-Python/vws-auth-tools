@@ -1,6 +1,4 @@
-"""
-Authorization helpers.
-"""
+"""Authorization helpers."""
 
 import base64
 import email.utils
@@ -9,25 +7,22 @@ import hmac
 
 
 def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
-    """
-    Return the Base64 encoded HMAC-SHA1 hash of the given `data` using the
-    provided `key`.
-    """
+    """Return the Base64 encoded HMAC-SHA1 hash of `data` using the `key`."""
     hashed = hmac.new(key=key, msg=None, digestmod=hashlib.sha1)
     hashed.update(msg=data)
     return base64.b64encode(s=hashed.digest())
 
 
 def rfc_1123_date() -> str:
-    """
-    Return the date formatted as per RFC 2616, section 3.3.1, rfc1123-date, as
-    described in
+    """Return the date formatted as per RFC 2616, section 3.3.1, rfc1123-date.
+
+    This is the date needed by the VWS API, as described in
     https://library.vuforia.com/articles/Training/Using-the-VWS-API.
     """
     return email.utils.formatdate(None, localtime=False, usegmt=True)
 
 
-def authorization_header(  # pylint: disable=too-many-arguments
+def authorization_header(
     access_key: str,
     secret_key: str,
     method: str,
@@ -36,9 +31,10 @@ def authorization_header(  # pylint: disable=too-many-arguments
     date: str,
     request_path: str,
 ) -> str:
-    """
-    Return an `Authorization` header which can be used for a request made to
-    the VWS API with the given attributes.
+    """Get an `Authentication` header for the VWS API.
+
+    This can be used for a request made to the VWS API with the given
+    attributes.
 
     See https://library.vuforia.com/articles/Training/Using-the-VWS-API.
 
@@ -58,10 +54,11 @@ def authorization_header(  # pylint: disable=too-many-arguments
             request.
 
     Returns:
-        Return an `Authorization` header which can be used for a request made
+        An `Authorization` header which can be used for a request made
         to the VWS API with the given attributes.
     """
-    hashed = hashlib.md5()
+    # Ignore a warning that MD5 is insecure - VWS requires it.
+    hashed = hashlib.md5()  # noqa: S324
     hashed.update(content)
     content_md5_hex = hashed.hexdigest()
 
@@ -80,5 +77,4 @@ def authorization_header(  # pylint: disable=too-many-arguments
             encoding="utf-8",
         ),
     )
-    auth_header = f"VWS {access_key}:{signature.decode()}"
-    return auth_header
+    return f"VWS {access_key}:{signature.decode()}"

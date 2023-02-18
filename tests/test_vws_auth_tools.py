@@ -1,19 +1,16 @@
-"""
-Tests for authorization tools.
-"""
+"""Tests for authorization tools."""
 
 import datetime
 from zoneinfo import ZoneInfo
 
-from freezegun import freeze_time
-
 import vws_auth_tools
+from freezegun import freeze_time
 
 
 def test_rfc_1123_date() -> None:
-    """
-    The date is returned in the format described at
-    https://library.vuforia.com/articles/Training/Using-the-VWS-API:
+    """The date is returned in the format described in the VWS documentation.
+
+    See https://library.vuforia.com/articles/Training/Using-the-VWS-API:
 
     ```
     Date: This is the current date per RFC 2616, section 3.3.1, rfc1123-date
@@ -40,13 +37,14 @@ def test_rfc_1123_date() -> None:
 
 
 def test_authorization_header() -> None:
-    """
-    The authorization header is constructed as described in the Vuforia
-    documentation. This example has been run on known-working code and so any
-    refactor should continue to pass this test.
+    """The Authorization header is constructed as documented.
+
+    This example has been run on known-working code and so any refactor should
+    continue to pass this test.
     """
     access_key = "my_access_key"
-    secret_key = "my_secret_key"
+    # Ignore "Possible hardcoded password" as it is appropriate here.
+    secret_key = "my_secret_key"  # noqa: S105
     method = "HTTPMETHOD"
     content = b"some_bytes"
     content_type = "some/content/type"

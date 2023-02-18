@@ -4,6 +4,7 @@ args
 auth
 changelog
 cli
+hardcoded
 linter
 linting
 login

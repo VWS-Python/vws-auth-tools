@@ -1,6 +1,4 @@
-"""
-Setup script.
-"""
+"""Setup script."""
 
 from __future__ import annotations
 
@@ -10,8 +8,7 @@ from setuptools import setup
 
 
 def _get_dependencies(requirements_file: Path) -> list[str]:
-    """
-    Return requirements from a requirements file.
+    """Return requirements from a requirements file.
 
     This expects a requirements file with no ``--find-links`` lines.
     """
