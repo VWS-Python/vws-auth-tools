@@ -10,8 +10,7 @@ lint: \
     black \
     check-manifest \
     doc8 \
-    flake8 \
-    isort \
+    ruff \
     linkcheck \
     mypy \
     pip-extra-reqs \
@@ -19,15 +18,12 @@ lint: \
     pyroma \
     spelling \
     vulture \
-    pylint \
-    pydocstyle \
+    pylint
 
 .PHONY: fix-lint
 fix-lint: \
-    add-trailing-comma \
-    autoflake \
-    fix-black \
-    fix-isort
+	fix-black \
+    fix-ruff
 
 .PHONY: docs
 docs:
