@@ -140,6 +140,9 @@ strict = true
 requires = ["setuptools", "pip", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.distutils.bdist_wheel]
+universal = true
+
 [tool.ruff]
 select = ["ALL"]
 
@@ -160,3 +163,32 @@ ignore = [
     # Allow 'assert' as we use it for tests.
     "S101",
 ]
+
+[project]
+authors = [ { name = "Adam Dangoor", email = "adamdangoor@gmail.com"} ]
+classifiers = [
+    "Operating System :: POSIX",
+    "Environment :: Web Environment",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 5 - Production/Stable",
+]
+description = "Authentication and authorization tools for interacting with the Vuforia Web Services (VWS) API."
+dynamic = ["version"]
+keywords = ["vuforia", "vws"]
+license = { file = "LICENSE" }
+name = "vws-auth-tools"
+readme = { file = "README.rst", content-type = "text/x-rst"}
+requires-python = ">=3.10"
+
+[project.urls]
+Source = "https://github.com/VWS-Python/vws-auth-tools"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+vws_auth_tools = ["py.typed"]
