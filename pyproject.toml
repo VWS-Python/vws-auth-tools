@@ -209,7 +209,6 @@ dev = [
     "sphinx-prompt==1.5.0",
     "sphinxcontrib.spelling==8.0.0",
     "types-freezegun==1.1.10",
-    "types-setuptools==67.6.0.0",
     "vulture==2.7",
 ]
 
