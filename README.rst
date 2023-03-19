@@ -17,13 +17,29 @@ This is tested on Python 3.11+.
 Usage
 -----
 
-.. code:: python
+.. invisible-code-block: python
+
+   from mock_vws import MockVWS
+   from mock_vws.database import VuforiaDatabase
+
+   mock = MockVWS(real_http=False)
+   database = VuforiaDatabase(
+       server_access_key='my_access_key',
+       server_secret_key='my_secret_key',
+       client_access_key='my_access_key',
+       client_secret_key='my_secret_key',
+   )
+   mock.add_database(database=database)
+   mock.__enter__()
+
+.. code-block:: python
+
+   from urllib.parse import urljoin
 
    import requests
    from vws_auth_tools import authorization_header, rfc_1123_date
 
-   target_id = '...'
-   request_path = f'/duplicates/{target_id}'
+   request_path = '/targets'
    content = b''
    method = 'GET'
    date = rfc_1123_date()
@@ -37,7 +53,7 @@ Usage
        request_path=request_path,
    )
 
-   headers = {'Authorization': authorization_string, 'Date': date}
+   headers = {'Authorization': authorization_header, 'Date': date}
 
    response = requests.request(
         method=method,
@@ -46,8 +62,11 @@ Usage
         data=content,
     )
 
-    assert response.status_code == 200
+   assert response.status_code == 200, response.text
 
+.. invisible-code-block: python
+
+   mock.__exit__()
 
 Full Documentation
 ------------------
