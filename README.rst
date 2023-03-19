@@ -17,7 +17,9 @@ This is tested on Python 3.11+.
 Usage
 -----
 
-.. code:: python
+.. code-block:: python
+
+   from urllib.parse import urljoin
 
    import requests
    from vws_auth_tools import authorization_header, rfc_1123_date
@@ -37,7 +39,7 @@ Usage
        request_path=request_path,
    )
 
-   headers = {'Authorization': authorization_string, 'Date': date}
+   headers = {'Authorization': authorization_header, 'Date': date}
 
    response = requests.request(
         method=method,
@@ -46,7 +48,7 @@ Usage
         data=content,
     )
 
-    assert response.status_code == 200
+   assert response.status_code == 200
 
 
 Full Documentation
