@@ -13,6 +13,7 @@ metadata
 multipart
 noqa
 pragma
+pyright
 pytest
 refactor
 rfc
