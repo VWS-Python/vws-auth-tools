@@ -225,7 +225,7 @@ dev = [
     "sphinxcontrib.spelling==8.0.0",
     "sybil==4.0.1",
     "vulture==2.7",
-    "vws-python-mock==2023.3.5",
+    "vws-python-mock==2023.3.26",
 ]
 
 [project.urls]
