@@ -224,7 +224,7 @@ dev = [
     "sphinx-prompt==1.5.0",
     "sphinxcontrib.spelling==8.0.0",
     "sybil==5.0.3",
-    "vulture==2.7",
+    "vulture==2.8",
     "vws-python-mock==2023.5.21",
 ]
 
