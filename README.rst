@@ -12,7 +12,7 @@ Installation
 
    pip install vws-auth-tools
 
-This is tested on Python 3.11+.
+This is tested on Python 3.12+.
 
 Usage
 -----
