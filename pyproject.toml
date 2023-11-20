@@ -82,10 +82,6 @@
     # --spelling-private-dict-file option instead of raising a message.
     spelling-store-unknown-words = 'no'
 
-[tool.black]
-
-line-length = 79
-
 [tool.coverage.run]
 
 branch = true
@@ -146,19 +142,20 @@ module = [
 ignore_missing_imports = true
 
 [build-system]
-requires = [
-     "pip",
-     "setuptools",
-     "setuptools_scm[toml]>=7.1.0",
-     "wheel",
- ]
 build-backend = "setuptools.build_meta"
+requires = [
+    "pip",
+    "setuptools",
+    "setuptools_scm[toml]>=7.1",
+    "wheel",
+]
 
 [tool.distutils.bdist_wheel]
 universal = true
 
 [tool.ruff]
 select = ["ALL"]
+line-length = 79
 
 ignore = [
     # Ignore `one-blank-line-before-class` because it is incompatible with
@@ -184,49 +181,51 @@ ignore = [
 unfixable = ["ERA001"]
 
 [project]
+name = "vws-auth-tools"
+description = "Authentication and authorization tools for interacting with the Vuforia Web Services (VWS) API."
+readme = { file = "README.rst", content-type = "text/x-rst"}
+keywords = [
+    "vuforia",
+    "vws",
+]
+license = { file = "LICENSE" }
 authors = [ { name = "Adam Dangoor", email = "adamdangoor@gmail.com"} ]
+requires-python = ">=3.10"
 classifiers = [
-    "Operating System :: POSIX",
+    "Development Status :: 5 - Production/Stable",
     "Environment :: Web Environment",
     "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
     "Development Status :: 5 - Production/Stable",
 ]
-description = "Authentication and authorization tools for interacting with the Vuforia Web Services (VWS) API."
 dynamic = ["version"]
-keywords = ["vuforia", "vws"]
-license = { file = "LICENSE" }
-name = "vws-auth-tools"
-readme = { file = "README.rst", content-type = "text/x-rst"}
-requires-python = ">=3.12"
 dependencies = []
 
 [project.optional-dependencies]
 dev = [
-    "Sphinx-Substitution-Extensions==2022.2.16",
-    "black==23.10.0",
     "check-manifest==0.49",
     "doc8==1.1.1",
     "freezegun==1.2.2",
     "furo==2023.9.10",
-    "mypy==1.6.1",
-    "pdm==2.9.3",
+    "mypy==1.7.0",
+    "pdm==2.10.3",
     "pip_check_reqs==2.5.3",
-    "pylint==3.0.1",
-    "pyright==1.1.332",
+    "pylint==3.0.2",
+    "pyproject-fmt==1.5.1",
+    "pyright==1.1.336",
     "pyroma==4.2",
-    "pytest-cov==4.1.0",
-    "pytest==7.4.2",
-    "ruff==0.1.1",
-    "sphinx-autodoc-typehints==1.24.0",
+    "pytest==7.4.3",
+    "pytest-cov==4.1",
+    "ruff==0.1.5",
     "sphinx==7.2.6",
-    "sphinx-prompt==1.8.0",
-    "sphinxcontrib.spelling==8.0.0",
+    "sphinx-autodoc-typehints==1.25.2",
+    "sphinx-prompt==1.8",
+    "Sphinx-Substitution-Extensions==2022.2.16",
+    "sphinxcontrib.spelling==8",
     "sybil==5.0.3",
     "vulture==2.10",
     "vws-python-mock==2023.5.21",
 ]
-
 [project.urls]
 Source = "https://github.com/VWS-Python/vws-auth-tools"
 
