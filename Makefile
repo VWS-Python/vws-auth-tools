@@ -17,6 +17,7 @@ lint: \
     pyproject-fmt \
     pyroma \
     pyright \
+    pyright-verifytypes \
     spelling \
     vulture \
     pylint
