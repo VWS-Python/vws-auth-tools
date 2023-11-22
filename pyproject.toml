@@ -132,15 +132,6 @@ ignore_path = [
 
 strict = true
 
-[[tool.mypy.overrides]]
-
-module = [
-    "sybil",
-    "sybil.parsers.rest",
-]
-
-ignore_missing_imports = true
-
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
@@ -227,7 +218,7 @@ dev = [
     "sphinx-prompt==1.8",
     "Sphinx-Substitution-Extensions==2022.2.16",
     "sphinxcontrib.spelling==8",
-    "sybil==5.0.3",
+    "sybil==6.0.0",
     "vulture==2.10",
     "vws-python-mock==2023.5.21",
 ]
