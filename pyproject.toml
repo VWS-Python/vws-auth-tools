@@ -236,5 +236,9 @@ vws_auth_tools = ["py.typed"]
 
 [tool.setuptools_scm]
 
+[tool.pyproject-fmt]
+indent = 4
+keep_full_version = true
+
 [tool.pyright]
 typeCheckingMode = "strict"
