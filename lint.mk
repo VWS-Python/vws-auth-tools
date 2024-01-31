@@ -12,6 +12,10 @@ fix-ruff:
 	ruff --fix .
 	ruff format .
 
+.PHONY: actionlint
+actionlint:
+	actionlint
+
 .PHONY: mypy
 mypy:
 	mypy .
