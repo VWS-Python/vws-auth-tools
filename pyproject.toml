@@ -168,10 +168,14 @@ requires = [
 universal = true
 
 [tool.ruff]
-select = ["ALL"]
 line-length = 79
 
+[tool.ruff.lint]
+select = ["ALL"]
+
 ignore = [
+    # Ruff warns that this conflicts with the formatter.
+    "COM812",
     # Ignore `one-blank-line-before-class` because it is incompatible with
     # `no-blank-line-before-class` (D211).
     "D203",
@@ -183,6 +187,8 @@ ignore = [
     "D406",
     "D407",
     "D413",
+    # Ruff warns that this conflicts with the formatter.
+    "ISC001",
     # Ignore "too-many-*" errors as they seem to get in the way more than
     # helping.
     "PLR0913",
@@ -237,7 +243,7 @@ dev = [
     "pyroma==4.2",
     "pytest==8.0.0",
     "pytest-cov==4.1",
-    "ruff==0.1.15",
+    "ruff==0.2.0",
     "sphinx==7.2.6",
     "sphinx-autodoc-typehints==1.25.3",
     "sphinx-prompt==1.8",
