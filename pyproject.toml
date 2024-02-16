@@ -250,7 +250,7 @@ dev = [
     "sphinxcontrib.spelling==8",
     "sybil==6.0.3",
     "vulture==2.11",
-    "vws-python-mock==2024.1.21",
+    "vws-python-mock==2024.2.16",
 ]
 [project.urls]
 Source = "https://github.com/VWS-Python/vws-auth-tools"
