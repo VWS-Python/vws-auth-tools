@@ -248,7 +248,7 @@ dev = [
     "Sphinx-Substitution-Extensions==2022.2.16",
     "sphinxcontrib.spelling==8",
     "sybil==6.0.3",
-    "uv==0.1.5",
+    "uv==0.1.6",
     "vulture==2.11",
     "vws-python-mock==2024.2.16",
 ]
