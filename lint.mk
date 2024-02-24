@@ -4,12 +4,12 @@ SHELL := /bin/bash -euxo pipefail
 
 .PHONY: ruff
 ruff:
-	ruff .
+	ruff check .
 	ruff format --check .
 
 .PHONY: fix-ruff
 fix-ruff:
-	ruff --fix .
+	ruff check --fix .
 	ruff format .
 
 .PHONY: actionlint
