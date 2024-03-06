@@ -242,7 +242,7 @@ dev = [
     "pyroma==4.2",
     "pytest==8.0.2",
     "pytest-cov==4.1",
-    "ruff==0.3.0",
+    "ruff==0.3.1",
     "sphinx==7.2.6",
     "sphinx-prompt==1.8",
     "Sphinx-Substitution-Extensions==2024.2.25",
