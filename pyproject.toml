@@ -176,17 +176,11 @@ select = ["ALL"]
 ignore = [
     # Ruff warns that this conflicts with the formatter.
     "COM812",
-    # Ignore `one-blank-line-before-class` because it is incompatible with
-    # `no-blank-line-before-class` (D211).
-    "D203",
-    # Ignore `multi-line-summary-second-line` because it is incompatible with
-    # `multi-line-summary-first-line` (D212).
-    "D213",
-    # We ignore some docstyle errors which do not apply to Google style
-    # docstrings.
-    "D406",
-    "D407",
-    "D413",
+    # Allow our chosen docstring line-style - no one-line summary.
+    "D200",
+    "D205",
+    "D212",
+    "D415",
     # Ruff warns that this conflicts with the formatter.
     "ISC001",
     # Ignore "too-many-*" errors as they seem to get in the way more than
@@ -200,6 +194,9 @@ ignore = [
 # We comment out code during development, and with VSCode auto-save, this code
 # is sometimes annoyingly removed.
 unfixable = ["ERA001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [project]
 name = "vws-auth-tools"
