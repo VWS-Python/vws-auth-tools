@@ -132,3 +132,11 @@ repos:
         language: system
         stages: [manual]
         pass_filenames: false
+
+    -   id: pyright-verifytypes
+        name: pyright-verifytypes
+        stages: [push]
+        entry: pyright --verifytypes vws_auth_tools
+        language: system
+        pass_filenames: false
+        types: [python]
