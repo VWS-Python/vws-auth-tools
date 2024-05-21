@@ -86,13 +86,6 @@ line-length = 79
 lint.select = [
     "ALL",
 ]
-# Do not automatically remove commented out code.
-# We comment out code during development, and with VSCode auto-save, this code
-# is sometimes annoyingly removed.
-lint.unfixable = [
-    "ERA001",
-]
-lint.pydocstyle.convention = "google"
 lint.ignore = [
     # Ruff warns that this conflicts with the formatter.
     "COM812",
@@ -109,6 +102,14 @@ lint.ignore = [
     # Allow 'assert' as we use it for tests.
     "S101",
 ]
+
+# Do not automatically remove commented out code.
+# We comment out code during development, and with VSCode auto-save, this code
+# is sometimes annoyingly removed.
+lint.unfixable = [
+    "ERA001",
+]
+lint.pydocstyle.convention = "google"
 
 [tool.pylint]
 
