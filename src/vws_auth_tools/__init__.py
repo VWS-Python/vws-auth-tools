@@ -17,7 +17,7 @@ def rfc_1123_date() -> str:
     """Return the date formatted as per RFC 2616, section 3.3.1, rfc1123-date.
 
     This is the date needed by the VWS API, as described in
-    https://library.vuforia.com/articles/Training/Using-the-VWS-API.
+    https://developer.vuforia.com/library/web-api/vuforia-web-api-authentication.
     """
     return email.utils.formatdate(None, localtime=False, usegmt=True)
 
@@ -36,7 +36,7 @@ def authorization_header(
     This can be used for a request made to the VWS API with the given
     attributes.
 
-    See https://library.vuforia.com/articles/Training/Using-the-VWS-API.
+    See https://developer.vuforia.com/library/web-api/vuforia-web-api-authentication.
 
     Args:
         access_key: A VWS server or client access key.

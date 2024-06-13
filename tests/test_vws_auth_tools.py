@@ -10,7 +10,7 @@ from freezegun import freeze_time
 def test_rfc_1123_date() -> None:
     """The date is returned in the format described in the VWS documentation.
 
-    See https://library.vuforia.com/articles/Training/Using-the-VWS-API:
+    See https://developer.vuforia.com/library/web-api/vuforia-web-api-authentication:
 
     ```
     Date: This is the current date per RFC 2616, section 3.3.1, rfc1123-date
