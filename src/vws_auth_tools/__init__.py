@@ -19,7 +19,7 @@ def rfc_1123_date() -> str:
     This is the date needed by the VWS API, as described in
     https://developer.vuforia.com/library/web-api/vuforia-web-api-authentication.
     """
-    return email.utils.formatdate(None, localtime=False, usegmt=True)
+    return email.utils.formatdate(timeval=None, localtime=False, usegmt=True)
 
 
 def authorization_header(
