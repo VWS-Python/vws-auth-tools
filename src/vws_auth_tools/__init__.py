@@ -79,9 +79,6 @@ def authorization_header(
     string_to_sign = "\n".join(components_to_sign)
     signature = _compute_hmac_base64(
         key=secret_key.encode(),
-        data=bytes(
-            string_to_sign,
-            encoding="utf-8",
-        ),
+        data=string_to_sign.encode(),
     )
     return f"VWS {access_key}:{signature.decode()}"
