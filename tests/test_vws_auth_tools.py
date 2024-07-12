@@ -63,3 +63,29 @@ def test_authorization_header(content: bytes | str) -> None:
     )
 
     assert result == "VWS my_access_key:8Uy6SKuO5sSBY2X8/znlPFmDF/k="
+
+
+@pytest.mark.parametrize("content", [b"", None])
+def test_authorization_header_none_content(content: bytes | None) -> None:
+    """
+    The Authorization header is the same whether the content is None or b"".
+    """
+    access_key = "my_access_key"
+    # Ignore "Possible hardcoded password" as it is appropriate here.
+    secret_key = "my_secret_key"  # noqa: S105
+    method = "HTTPMETHOD"
+    content_type = "some/content/type"
+    date = "some_date_string"
+    request_path = "/foo"
+
+    result = vws_auth_tools.authorization_header(
+        access_key=access_key,
+        secret_key=secret_key,
+        method=method,
+        content=content,
+        content_type=content_type,
+        date=date,
+        request_path=request_path,
+    )
+
+    assert result == "VWS my_access_key:XXvKyRyMkwS8/1P1WLQ0duqNpKs="
