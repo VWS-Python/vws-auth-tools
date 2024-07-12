@@ -3,6 +3,7 @@
 import datetime
 from zoneinfo import ZoneInfo
 
+import pytest
 import vws_auth_tools
 from freezegun import freeze_time
 
@@ -36,7 +37,8 @@ def test_rfc_1123_date() -> None:
     assert result == "Thu, 05 Feb 2015 14:55:12 GMT"
 
 
-def test_authorization_header() -> None:
+@pytest.mark.parametrize("content", [b"some_bytes", "some_bytes"])
+def test_authorization_header(content: bytes | str) -> None:
     """The Authorization header is constructed as documented.
 
     This example has been run on known-working code and so any refactor should
@@ -46,7 +48,6 @@ def test_authorization_header() -> None:
     # Ignore "Possible hardcoded password" as it is appropriate here.
     secret_key = "my_secret_key"  # noqa: S105
     method = "HTTPMETHOD"
-    content = b"some_bytes"
     content_type = "some/content/type"
     date = "some_date_string"
     request_path = "/foo"
