@@ -26,7 +26,7 @@ def authorization_header(
     access_key: str,
     secret_key: str,
     method: str,
-    content: bytes,
+    content: str | bytes | None,
     content_type: str,
     date: str,
     request_path: str,
@@ -59,6 +59,13 @@ def authorization_header(
     """
     # Ignore a warning that MD5 is insecure - VWS requires it.
     hashed = hashlib.md5()  # noqa: S324
+
+    if content is None:
+        content = b""
+
+    if isinstance(content, str):
+        content = content.encode(encoding="utf-8")
+
     hashed.update(content)
     content_md5_hex = hashed.hexdigest()
 
