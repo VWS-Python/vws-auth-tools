@@ -156,3 +156,27 @@ repos:
     language: system
     pass_filenames: false
     types_or: [python]
+# We use system Python, with required dependencies specified in pyproject.toml.
+# We therefore cannot use those dependencies in pre-commit CI.
+ci:
+  skip:
+  - actionlint
+  - mypy
+  - check-manifest
+  - pyright
+  - vulture
+  - pyroma
+  - deptry
+  - pylint
+  - ruff-check
+  - ruff-format-check
+  - ruff-check-fix
+  - ruff-format-fix
+  - doc8
+  - interrogate
+  - pyproject-fmt-check
+  - pyproject-fmt-fix
+  - linkcheck
+  - spelling
+  - docs
+  - pyright-verifytypes
