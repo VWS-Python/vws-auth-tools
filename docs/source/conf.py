@@ -13,7 +13,6 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
-    "sphinx-prompt",
     "sphinx_substitution_extensions",
     "sphinxcontrib.spelling",
 ]
