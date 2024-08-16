@@ -4,8 +4,9 @@ import datetime
 from zoneinfo import ZoneInfo
 
 import pytest
-import vws_auth_tools
 from freezegun import freeze_time
+
+import vws_auth_tools
 
 
 def test_rfc_1123_date() -> None:
