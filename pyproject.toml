@@ -257,6 +257,9 @@ keep_full_version = true
 
 xfail_strict = true
 log_cli = true
+typeguard-packages = """
+tests
+"""
 
 [tool.coverage.run]
 
