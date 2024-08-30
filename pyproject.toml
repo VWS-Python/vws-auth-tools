@@ -57,7 +57,7 @@ optional-dependencies.dev = [
     "sphinxcontrib-spelling==8",
     "sybil==6.1.1",
     "vulture==2.11",
-    "vws-python-mock==2024.7.15",
+    "vws-python-mock==2024.8.30",
 ]
 urls.Source = "https://github.com/VWS-Python/vws-auth-tools"
 
