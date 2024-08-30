@@ -23,6 +23,7 @@ sybil_obj = Sybil(
 pytest_collect_file = sybil_obj.pytest()
 
 
+@beartype
 def pytest_collection_modifyitems(items: list[pytest.Item]) -> None:
     """
     Apply the beartype decorator to all collected test functions.

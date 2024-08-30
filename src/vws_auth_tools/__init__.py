@@ -5,7 +5,10 @@ import email.utils
 import hashlib
 import hmac
 
+from beartype import beartype
 
+
+@beartype
 def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
     """Return the Base64 encoded HMAC-SHA1 hash of `data` using the `key`."""
     hashed = hmac.new(key=key, msg=None, digestmod=hashlib.sha1)
@@ -13,6 +16,7 @@ def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
     return base64.b64encode(s=hashed.digest())
 
 
+@beartype
 def rfc_1123_date() -> str:
     """Return the date formatted as per RFC 2616, section 3.3.1, rfc1123-date.
 
@@ -22,6 +26,7 @@ def rfc_1123_date() -> str:
     return email.utils.formatdate(timeval=None, localtime=False, usegmt=True)
 
 
+@beartype
 def authorization_header(
     access_key: str,
     secret_key: str,
