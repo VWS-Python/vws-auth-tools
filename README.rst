@@ -17,21 +17,6 @@ This is tested on Python 3.12+.
 Usage
 -----
 
-.. invisible-code-block: python
-
-   from mock_vws import MockVWS
-   from mock_vws.database import VuforiaDatabase
-
-   mock = MockVWS(real_http=False)
-   database = VuforiaDatabase(
-       server_access_key='my_access_key',
-       server_secret_key='my_secret_key',
-       client_access_key='my_access_key',
-       client_secret_key='my_secret_key',
-   )
-   mock.add_database(database=database)
-   mock.__enter__()
-
 .. code-block:: python
 
    from urllib.parse import urljoin
@@ -44,8 +29,8 @@ Usage
    method = 'GET'
    date = rfc_1123_date()
    authorization_header = authorization_header(
-       access_key='my_access_key',
-       secret_key='my_secret_key',
+       access_key='[server-access-key]',
+       secret_key='[server-secret-key]',
        method=method,
        content=content,
        content_type='',
@@ -63,10 +48,6 @@ Usage
     )
 
    assert response.status_code == 200, response.text
-
-.. invisible-code-block: python
-
-   mock.__exit__()
 
 Full Documentation
 ------------------
