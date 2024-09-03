@@ -32,7 +32,7 @@ def test_rfc_1123_date() -> None:
         microsecond=11,
         tzinfo=not_gmt_timezone,
     )
-    with freeze_time(frozen_time):
+    with freeze_time(time_to_freeze=frozen_time):
         result = vws_auth_tools.rfc_1123_date()
 
     assert result == "Thu, 05 Feb 2015 14:55:12 GMT"
