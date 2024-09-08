@@ -54,7 +54,7 @@ Full Documentation
 
 See the `full documentation <https://vws-auth-tools.readthedocs.io/en/latest>`__.
 
-.. |Build Status| image:: https://github.com/VWS-Python/vws-auth-tools/workflows/CI/badge.svg
+.. |Build Status| image:: https://github.com/VWS-Python/vws-auth-tools/actions/workflows/ci.yml/badge.svg?branch=main
    :target: https://github.com/VWS-Python/vws-auth-tools/actions
 .. |codecov| image:: https://codecov.io/gh/VWS-Python/vws-auth-tools/branch/main/graph/badge.svg
    :target: https://codecov.io/gh/VWS-Python/vws-auth-tools
