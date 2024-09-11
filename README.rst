@@ -8,7 +8,7 @@ Authentication and authorization tools for interacting with the Vuforia Web Serv
 Installation
 ------------
 
-.. code:: sh
+.. code-block:: sh
 
    pip install vws-auth-tools
 
