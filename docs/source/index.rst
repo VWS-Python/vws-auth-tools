@@ -13,37 +13,51 @@ This is tested on Python 3.12+.
 Example usage
 -------------
 
+
 .. code-block:: python
 
+   """Make a request to the VWS API."""
+
+   from http import HTTPStatus
    from urllib.parse import urljoin
 
    import requests
+
    from vws_auth_tools import authorization_header, rfc_1123_date
 
-   request_path = '/targets'
-   content = b''
-   method = 'GET'
-   date = rfc_1123_date()
-   authorization_header = authorization_header(
-       access_key='[server-access-key]',
-       secret_key='[server-secret-key]',
-       method=method,
-       content=content,
-       content_type='',
-       date=date,
-       request_path=request_path,
-   )
 
-   headers = {'Authorization': authorization_header, 'Date': date}
+   def get_targets() -> requests.Response:
+       """Get targets from the VWS API."""
+       request_path = "/targets"
+       content = b""
+       method = "GET"
+       formatted_date = rfc_1123_date()
+       authorization_header_value = authorization_header(
+           access_key="[server-access-key]",
+           secret_key="[server-secret-key]",
+           method=method,
+           content=content,
+           content_type="",
+           date=formatted_date,
+           request_path=request_path,
+       )
 
-   response = requests.request(
-        method=method,
-        url=urljoin(base='https://vws.vuforia.com', url=request_path),
-        headers=headers,
-        data=content,
-    )
+       headers = {
+           "Authorization": authorization_header_value,
+           "Date": formatted_date,
+       }
 
-   assert response.status_code == 200, response.text
+       return requests.request(
+           method=method,
+           url=urljoin(base="https://vws.vuforia.com", url=request_path),
+           headers=headers,
+           data=content,
+           timeout=30,
+       )
+
+
+   targets_response = get_targets()
+   assert targets_response.status_code == HTTPStatus.OK, targets_response.text
 
 Reference
 ---------
