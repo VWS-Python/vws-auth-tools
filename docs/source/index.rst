@@ -17,35 +17,44 @@ Example usage
 
    """Make a request to the VWS API."""
 
-   from http import HTTPStatus
-   from urllib.parse import urljoin
-
-   import requests
-
-   from vws_auth_tools import authorization_header, rfc_1123_date
-
    request_path = "/targets"
    content = b""
    method = "GET"
+<<<<<<< HEAD
    formatted_date = rfc_1123_date()
    authorization_header_value = authorization_header(
+=======
+   date = rfc_1123_date()
+   authorization_header = authorization_header(
+>>>>>>> 559660afacbbd34da66ef184efb594e94034f2a2
        access_key="[server-access-key]",
        secret_key="[server-secret-key]",
        method=method,
        content=content,
        content_type="",
+<<<<<<< HEAD
        date=formatted_date,
        request_path=request_path,
    )
 
    headers = {"Authorization": authorization_header_value, "Date": formatted_date}
+=======
+       date=date,
+       request_path=request_path,
+   )
+
+   headers = {"Authorization": authorization_header, "Date": date}
+>>>>>>> 559660afacbbd34da66ef184efb594e94034f2a2
 
    response = requests.request(
        method=method,
        url=urljoin(base="https://vws.vuforia.com", url=request_path),
        headers=headers,
        data=content,
+<<<<<<< HEAD
        timeout=30,
+=======
+>>>>>>> 559660afacbbd34da66ef184efb594e94034f2a2
    )
 
    assert response.status_code == HTTPStatus.OK, response.text
