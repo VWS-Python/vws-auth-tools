@@ -17,6 +17,13 @@ Example usage
 
    """Make a request to the VWS API."""
 
+   from http import HTTPStatus
+   from urllib.parse import urljoin
+
+   import requests
+
+   from vws_auth_tools import authorization_header, rfc_1123_date
+
    request_path = "/targets"
    content = b""
    method = "GET"
