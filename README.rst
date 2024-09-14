@@ -32,7 +32,7 @@ Usage
    content = b""
    method = "GET"
    formatted_date = rfc_1123_date()
-   authorization_header = authorization_header(
+   authorization_header_value = authorization_header(
        access_key="[server-access-key]",
        secret_key="[server-secret-key]",
        method=method,
@@ -42,7 +42,7 @@ Usage
        request_path=request_path,
    )
 
-   headers = {"Authorization": authorization_header, "Date": formatted_date}
+   headers = {"Authorization": authorization_header_value, "Date": formatted_date}
 
    response = requests.request(
        method=method,
