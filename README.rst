@@ -36,13 +36,13 @@ Usage
        method = "GET"
        formatted_date = rfc_1123_date()
        authorization_header_value = authorization_header(
-          access_key="[server-access-key]",
-          secret_key="[server-secret-key]",
-          method=method,
-          content=content,
-          content_type="",
-          date=formatted_date,
-          request_path=request_path,
+           access_key="[server-access-key]",
+           secret_key="[server-secret-key]",
+           method=method,
+           content=content,
+           content_type="",
+           date=formatted_date,
+           request_path=request_path,
        )
 
        headers = {
@@ -51,12 +51,13 @@ Usage
        }
 
        return requests.request(
-          method=method,
-          url=urljoin(base="https://vws.vuforia.com", url=request_path),
-          headers=headers,
-          data=content,
-          timeout=30,
+           method=method,
+           url=urljoin(base="https://vws.vuforia.com", url=request_path),
+           headers=headers,
+           data=content,
+           timeout=30,
        )
+
 
    targets_response = get_targets()
    assert targets_response.status_code == HTTPStatus.OK, targets_response.text
