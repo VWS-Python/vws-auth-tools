@@ -31,18 +31,18 @@ Usage
    request_path = "/targets"
    content = b""
    method = "GET"
-   date = rfc_1123_date()
+   formatted_date = rfc_1123_date()
    authorization_header = authorization_header(
        access_key="[server-access-key]",
        secret_key="[server-secret-key]",
        method=method,
        content=content,
        content_type="",
-       date=date,
+       date=formatted_date,
        request_path=request_path,
    )
 
-   headers = {"Authorization": authorization_header, "Date": date}
+   headers = {"Authorization": authorization_header, "Date": formatted_date}
 
    response = requests.request(
        method=method,
