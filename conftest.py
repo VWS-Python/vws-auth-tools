@@ -15,8 +15,8 @@ from sybil.parsers.rest import (
 )
 
 
-@pytest.fixture
-def mock_vws() -> Generator[None, None, None]:
+@pytest.fixture(name="mock_vws")
+def fixture_mock_vws() -> Generator[None, None, None]:
     """
     Yield a mock VWS.
 
@@ -41,7 +41,7 @@ sybil_obj = Sybil(
         CaptureParser(),
     ],
     patterns=["*.rst", "*.py"],
-    fixtures=[mock_vws.__name__],
+    fixtures=["mock_vws"],
 )
 
 pytest_collect_file = sybil_obj.pytest()
