@@ -87,3 +87,6 @@ def authorization_header(
         data=string_to_sign.encode(),
     )
     return f"VWS {access_key}:{signature.decode()}"
+
+
+__all__ = ["rfc_1123_date", "authorization_header"]

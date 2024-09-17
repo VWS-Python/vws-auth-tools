@@ -41,7 +41,7 @@ sybil_obj = Sybil(
         CaptureParser(),
     ],
     patterns=["*.rst", "*.py"],
-    fixtures=["mock_vws"],
+    fixtures=[mock_vws.__name__],
 )
 
 pytest_collect_file = sybil_obj.pytest()
