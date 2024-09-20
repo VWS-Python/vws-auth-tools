@@ -110,16 +110,6 @@ lint.ignore = [
     "S101",
 ]
 
-lint.per-file-ignores."conftest.py" = [
-    # Allow hardcoded secrets in tests.
-    "S106",
-]
-
-lint.per-file-ignores."doccmd_*.py" = [
-    # Allow hardcoded secrets in documentation.
-    "S106",
-]
-
 # Do not automatically remove commented out code.
 # We comment out code during development, and with VSCode auto-save, this code
 # is sometimes annoyingly removed.
