@@ -19,7 +19,7 @@ from sybil.parsers.rest import (
 @pytest.fixture(name="mock_vws")
 def fixture_mock_vws(
     monkeypatch: pytest.MonkeyPatch,
-) -> Generator[None, None, None]:
+) -> Generator[None]:
     """
     Yield a mock VWS.
 

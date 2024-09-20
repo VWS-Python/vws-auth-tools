@@ -28,6 +28,7 @@ def rfc_1123_date() -> str:
 
 @beartype
 def authorization_header(
+    *,
     access_key: str,
     secret_key: str,
     method: str,
