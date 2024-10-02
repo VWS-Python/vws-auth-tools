@@ -12,7 +12,7 @@ Installation
 
    pip install vws-auth-tools
 
-This is tested on Python 3.12+.
+This is tested on Python |minimum-python-version|\+.
 
 Usage
 -----
@@ -74,3 +74,4 @@ See the `full documentation <https://vws-auth-tools.readthedocs.io/en/latest>`__
    :alt: Documentation Status
 .. |PyPI| image:: https://badge.fury.io/py/VWS-Auth-Tools.svg
    :target: https://badge.fury.io/py/VWS-Auth-Tools
+.. |minimum-python-version| replace:: 3.12
