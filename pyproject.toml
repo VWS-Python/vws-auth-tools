@@ -68,7 +68,7 @@ optional-dependencies.dev = [
     "vulture==2.13",
     "vws-python-mock==2024.8.30",
 ]
-optional-dependencies.release = ["build", "check-wheel-contents"]
+optional-dependencies.release = [ "build", "check-wheel-contents" ]
 urls.Source = "https://github.com/VWS-Python/vws-auth-tools"
 
 [tool.setuptools]
