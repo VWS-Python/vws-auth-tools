@@ -1,4 +1,6 @@
-"""Tests for authorization tools."""
+"""
+Tests for authorization tools.
+"""
 
 import datetime
 from zoneinfo import ZoneInfo
@@ -42,8 +44,8 @@ def test_rfc_1123_date() -> None:
 def test_authorization_header(content: bytes | str) -> None:
     """The Authorization header is constructed as documented.
 
-    This example has been run on known-working code and so any refactor should
-    continue to pass this test.
+    This example has been run on known-working code and so any refactor
+    should continue to pass this test.
     """
     access_key = "my_access_key"
     # Ignore "Possible hardcoded password" as it is appropriate here.

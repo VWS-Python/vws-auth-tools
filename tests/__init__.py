@@ -1,1 +1,3 @@
-"""Tests for authorization tools."""
+"""
+Tests for authorization tools.
+"""
