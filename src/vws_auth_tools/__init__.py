@@ -1,4 +1,6 @@
-"""Authorization helpers."""
+"""
+Authorization helpers.
+"""
 
 import base64
 import email.utils
@@ -10,7 +12,9 @@ from beartype import beartype
 
 @beartype
 def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
-    """Return the Base64 encoded HMAC-SHA1 hash of `data` using the `key`."""
+    """
+    Return the Base64 encoded HMAC-SHA1 hash of `data` using the `key`.
+    """
     hashed = hmac.new(key=key, msg=None, digestmod=hashlib.sha1)
     hashed.update(msg=data)
     return base64.b64encode(s=hashed.digest())

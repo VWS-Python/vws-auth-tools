@@ -1,4 +1,6 @@
-"""Setup for test suite."""
+"""
+Setup for test suite.
+"""
 
 import uuid
 from collections.abc import Generator
@@ -20,8 +22,7 @@ from sybil.parsers.rest import (
 def fixture_mock_vws(
     monkeypatch: pytest.MonkeyPatch,
 ) -> Generator[None]:
-    """
-    Yield a mock VWS.
+    """Yield a mock VWS.
 
     The keys used here match the keys in the documentation.
     """
