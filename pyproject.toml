@@ -305,6 +305,7 @@ branch = true
 strict = true
 files = [ "." ]
 exclude = [ "build" ]
+follow_untyped_imports = true
 
 [tool.pyright]
 reportUnnecessaryTypeIgnoreComment = true
