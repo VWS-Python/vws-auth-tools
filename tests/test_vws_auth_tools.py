@@ -23,7 +23,7 @@ def test_rfc_1123_date() -> None:
     NOTE: The date and time always refer to GMT.
     ```
     """
-    not_gmt_timezone = ZoneInfo("America/New_York")
+    not_gmt_timezone = ZoneInfo(key="America/New_York")
     frozen_time = datetime.datetime(
         year=2015,
         month=2,
@@ -40,7 +40,10 @@ def test_rfc_1123_date() -> None:
     assert result == "Thu, 05 Feb 2015 14:55:12 GMT"
 
 
-@pytest.mark.parametrize("content", [b"some_bytes", "some_bytes"])
+@pytest.mark.parametrize(
+    argnames="content",
+    argvalues=[b"some_bytes", "some_bytes"],
+)
 def test_authorization_header(content: bytes | str) -> None:
     """The Authorization header is constructed as documented.
 
@@ -68,7 +71,7 @@ def test_authorization_header(content: bytes | str) -> None:
     assert result == "VWS my_access_key:8Uy6SKuO5sSBY2X8/znlPFmDF/k="
 
 
-@pytest.mark.parametrize("content", [b"", None])
+@pytest.mark.parametrize(argnames="content", argvalues=[b"", None])
 def test_authorization_header_none_content(content: bytes | None) -> None:
     """
     The Authorization header is the same whether the content is None or b"".
