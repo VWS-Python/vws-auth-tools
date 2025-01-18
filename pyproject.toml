@@ -232,17 +232,14 @@ disable = [
     'wrong-import-order',
 ]
 
-# This format is described in the following issue:
-# https://github.com/christopherpickering/pylint-per-file-ignores/issues/160
-#
 # We ignore invalid names because:
 # - We want to use generated module names, which may not be valid, but are never seen.
 # - We want to use global variables in documentation, which may not be uppercase.
 # - conf.py is a Sphinx configuration file which requires lowercase global variable names.
-per-file-ignores = """
-docs/:invalid-name
-doccmd_README_rst.*.py:invalid-name
-"""
+per-file-ignores = [
+    "docs/:invalid-name",
+    "doccmd_README_rst.*.py:invalid-name",
+]
 
 [tool.pylint.'FORMAT']
 
