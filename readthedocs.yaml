@@ -10,7 +10,7 @@ build:
     # package from another package.
     # We need our tags in order to calculate the version.
     # See https://github.com/astral-sh/uv/issues/8148.
-    pre_install: [git fetch --tags]
+    pre_install: [git fetch --all --tags]
 
 python:
   install:
