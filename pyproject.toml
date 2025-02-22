@@ -272,7 +272,6 @@ ignore = [
     "*.enc",
     ".markdownlint.json",
     ".pre-commit-config.yaml",
-    "readthedocs.yaml",
     "CHANGELOG.rst",
     "CODE_OF_CONDUCT.rst",
     "CONTRIBUTING.rst",
