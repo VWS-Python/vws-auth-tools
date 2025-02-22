@@ -17,13 +17,21 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ['3.12']
+        python-version: ['3.13']
         platform: [ubuntu-latest, windows-latest]
 
     runs-on: ${{ matrix.platform }}
 
     steps:
       - uses: actions/checkout@v4
+        # Avoid issues with depending on a particular version of this
+        # package from another package.
+        # We need our tags in order to calculate the version.
+        # See https://github.com/astral-sh/uv/issues/8148.
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
