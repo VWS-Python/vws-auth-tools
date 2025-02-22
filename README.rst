@@ -1,4 +1,4 @@
-|Build Status| |codecov| |PyPI| |Documentation Status|
+|Build Status| |codecov| |PyPI|
 
 VWS Auth Tools
 ==============
@@ -63,15 +63,12 @@ Usage
 Full Documentation
 ------------------
 
-See the `full documentation <https://vws-auth-tools.readthedocs.io/en/latest>`__.
+See the `full documentation <https://vws-python.github.io/vws-auth-tools/>`__.
 
 .. |Build Status| image:: https://github.com/VWS-Python/vws-auth-tools/actions/workflows/ci.yml/badge.svg?branch=main
    :target: https://github.com/VWS-Python/vws-auth-tools/actions
 .. |codecov| image:: https://codecov.io/gh/VWS-Python/vws-auth-tools/branch/main/graph/badge.svg
    :target: https://codecov.io/gh/VWS-Python/vws-auth-tools
-.. |Documentation Status| image:: https://readthedocs.org/projects/vws-auth-tools/badge/?version=latest
-   :target: https://vws-auth-tools.readthedocs.io/en/latest/?badge=latest
-   :alt: Documentation Status
 .. |PyPI| image:: https://badge.fury.io/py/VWS-Auth-Tools.svg
    :target: https://badge.fury.io/py/VWS-Auth-Tools
 .. |minimum-python-version| replace:: 3.13
