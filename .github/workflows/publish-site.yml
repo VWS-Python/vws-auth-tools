@@ -17,7 +17,7 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         # Avoid issues with depending on a particular version of this
         # package from another package.
         # We need our tags in order to calculate the version.
