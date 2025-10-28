@@ -69,7 +69,9 @@ html_show_sphinx = False
 html_show_sourcelink = False
 html_theme_options = {
     "sidebar_hide_name": False,
-    "top_of_page_buttons": ["view", "edit"],
+    "source_repository": "https://github.com/VWS-Python/vws-auth-tools/",
+    "source_branch": "main",
+    "source_directory": "docs/source/",
 }
 
 # Retry link checking to avoid transient network errors.
