@@ -30,7 +30,7 @@ dynamic = [
     "version",
 ]
 dependencies = [
-    "beartype>=0.19.0",
+    "beartype>=0.22.9",
 ]
 optional-dependencies.dev = [
     "actionlint-py==1.7.9.24",
