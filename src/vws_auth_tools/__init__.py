@@ -67,8 +67,7 @@ def authorization_header(
         An `Authorization` header which can be used for a request made
         to the VWS API with the given attributes.
     """
-    # Ignore a warning that MD5 is insecure - VWS requires it.
-    hashed = hashlib.md5()  # noqa: S324
+    hashed = hashlib.md5(usedforsecurity=False)
 
     if content is None:
         content = b""
