@@ -25,7 +25,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
-      - uses: actions/checkout@v6        # Avoid issues with depending on a particular version of this
+      - uses: actions/checkout@v6  # Avoid issues with depending on a particular version of this
         # package from another package.
         # We need our tags in order to calculate the version.
         # See https://github.com/astral-sh/uv/issues/8148.
