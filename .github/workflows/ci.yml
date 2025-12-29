@@ -12,6 +12,8 @@ on:
     # Run at 1:00 every day
     - cron: 0 1 * * *
 
+permissions: {}
+
 jobs:
   build:
 
@@ -23,12 +25,13 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
-      - uses: actions/checkout@v6
-        # Avoid issues with depending on a particular version of this
+      - uses: actions/checkout@v6  # Avoid issues with depending on a particular version of this
         # package from another package.
         # We need our tags in order to calculate the version.
         # See https://github.com/astral-sh/uv/issues/8148.
+
         with:
+          persist-credentials: false
           fetch-depth: 0
           fetch-tags: true
 
