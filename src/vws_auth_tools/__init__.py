@@ -1,6 +1,4 @@
-"""
-Authorization helpers.
-"""
+"""Authorization helpers."""
 
 import base64
 import email.utils
@@ -13,7 +11,8 @@ from beartype import beartype
 @beartype
 def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
     """
-    Return the Base64 encoded HMAC-SHA1 hash of `data` using the `key`.
+    Return the Base64 encoded HMAC-SHA1 hash of `data` using the
+    `key`.
     """
     hashed = hmac.new(key=key, msg=None, digestmod=hashlib.sha1)
     hashed.update(msg=data)
@@ -22,7 +21,8 @@ def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
 
 @beartype
 def rfc_1123_date() -> str:
-    """Return the date formatted as per RFC 2616, section 3.3.1, rfc1123-date.
+    """Return the date formatted as per RFC 2616, section 3.3.1,
+    rfc1123-date.
 
     This is the date needed by the VWS API, as described in
     https://developer.vuforia.com/library/web-api/vuforia-web-api-authentication.

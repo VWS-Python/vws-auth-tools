@@ -1,6 +1,4 @@
-"""
-Tests for authorization tools.
-"""
+"""Tests for authorization tools."""
 
 import datetime
 from zoneinfo import ZoneInfo
@@ -12,7 +10,8 @@ import vws_auth_tools
 
 
 def test_rfc_1123_date() -> None:
-    """The date is returned in the format described in the VWS documentation.
+    """The date is returned in the format described in the VWS
+    documentation.
 
     See https://developer.vuforia.com/library/web-api/vuforia-web-api-authentication:
 
@@ -74,7 +73,8 @@ def test_authorization_header(content: bytes | str) -> None:
 @pytest.mark.parametrize(argnames="content", argvalues=[b"", None])
 def test_authorization_header_none_content(content: bytes | None) -> None:
     """
-    The Authorization header is the same whether the content is None or b"".
+    The Authorization header is the same whether the content is None or
+    b"".
     """
     access_key = "my_access_key"
     # Ignore "Possible hardcoded password" as it is appropriate here.
