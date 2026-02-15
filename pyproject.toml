@@ -282,6 +282,7 @@ ini_options.log_cli = true
 
 [tool.coverage]
 run.branch = true
+report.show_missing = true
 
 [tool.mypy]
 strict = true
@@ -291,6 +292,9 @@ follow_untyped_imports = true
 plugins = [
     "mypy_strict_kwargs",
 ]
+
+[tool.pyrefly]
+errors.non-exhaustive-match = "error"
 
 [tool.pyright]
 enableTypeIgnoreComments = false
@@ -362,6 +366,3 @@ exclude = [ ".venv" ]
 [tool.yamlfix]
 section_whitelines = 1
 whitelines = 1
-
-[tool.pyrefly]
-errors.non-exhaustive-match = "error"
