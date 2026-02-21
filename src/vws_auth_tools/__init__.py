@@ -9,7 +9,7 @@ from beartype import beartype
 
 
 @beartype
-def _compute_hmac_base64(key: bytes, data: bytes) -> bytes:
+def _compute_hmac_base64(*, key: bytes, data: bytes) -> bytes:
     """
     Return the Base64 encoded HMAC-SHA1 hash of `data` using the
     `key`.
