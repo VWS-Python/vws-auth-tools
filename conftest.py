@@ -7,7 +7,7 @@ from doctest import ELLIPSIS
 import pytest
 from beartype import beartype
 from mock_vws import MockVWS
-from mock_vws.database import VuforiaDatabase
+from mock_vws.database import CloudDatabase
 from sybil import Sybil
 from sybil.parsers.rest import (
     CaptureParser,
@@ -29,7 +29,7 @@ def fixture_mock_vws(
     client_access_key = uuid.uuid4().hex
     client_secret_key = uuid.uuid4().hex
 
-    database = VuforiaDatabase(
+    database = CloudDatabase(
         server_access_key=server_access_key,
         server_secret_key=server_secret_key,
         client_access_key=client_access_key,
@@ -42,7 +42,7 @@ def fixture_mock_vws(
     monkeypatch.setenv(name="VWS_CLIENT_SECRET_KEY", value=client_secret_key)
     # We use a low processing time so that tests run quickly.
     with MockVWS(processing_time_seconds=0.2) as mock:
-        mock.add_database(database=database)
+        mock.add_cloud_database(cloud_database=database)
         yield
 
 
