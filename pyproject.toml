@@ -53,6 +53,7 @@ optional-dependencies.dev = [
     "pyright==1.1.408",
     "pyroma==5.0.1",
     "pytest==9.0.3",
+    "pytest-beartype-tests==2026.4.19.1",
     "pytest-cov==7.1.0",
     "requests==2.33.1",
     "ruff==0.15.11",
@@ -79,11 +80,13 @@ optional-dependencies.dev = [
     "vws-python-mock==2026.2.22.3",
     "yamlfix==1.19.1",
     "zizmor==1.24.1",
-    "pytest-beartype-tests==2026.4.19.1",
 ]
 optional-dependencies.release = [ "check-wheel-contents==0.6.3" ]
 urls.Documentation = "https://vws-python.github.io/vws-auth-tools/"
 urls.Source = "https://github.com/VWS-Python/vws-auth-tools"
+
+[dependency-groups]
+dev = []
 
 [tool.setuptools]
 zip-safe = false
@@ -383,6 +386,3 @@ exclude = [ ".venv" ]
 [tool.yamlfix]
 section_whitelines = 1
 whitelines = 1
-
-[dependency-groups]
-dev = []
