@@ -5,7 +5,6 @@ from collections.abc import Generator
 from doctest import ELLIPSIS
 
 import pytest
-from beartype import beartype
 from mock_vws import MockVWS
 from mock_vws.database import CloudDatabase
 from sybil import Sybil
@@ -57,11 +56,3 @@ sybil_obj = Sybil(
 )
 
 pytest_collect_file = sybil_obj.pytest()
-
-
-@beartype
-def pytest_collection_modifyitems(items: list[pytest.Item]) -> None:
-    """Apply the beartype decorator to all collected test functions."""
-    for item in items:
-        if isinstance(item, pytest.Function):
-            item.obj = beartype(obj=item.obj)
