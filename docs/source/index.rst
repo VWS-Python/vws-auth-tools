@@ -66,4 +66,5 @@ Reference
    api-reference
    contributing
    release-process
+   unreleased
    changelog
