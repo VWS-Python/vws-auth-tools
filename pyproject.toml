@@ -48,7 +48,7 @@ optional-dependencies.dev = [
     "pydocstringformatter==0.7.5",
     "pylint[spelling]==4.0.5",
     "pylint-per-file-ignores==3.2.1",
-    "pyproject-fmt==2.22.0",
+    "pyproject-fmt==2.23.0",
     "pyrefly==1.0.0",
     "pyright==1.1.410",
     "pyroma==5.0.1",
@@ -275,6 +275,11 @@ SPELLING.spelling-private-dict-file = "spelling_private_dict.txt"
 # --spelling-private-dict-file option instead of raising a message.
 SPELLING.spelling-store-unknown-words = "no"
 
+[tool.interrogate]
+fail-under = 100
+verbose = 2
+omit-covered-files = true
+
 [tool.check-manifest]
 ignore = [
     "*.enc",
@@ -315,6 +320,48 @@ per_rule_ignores.DEP002 = [
 optional_dependencies_dev_groups = [
     "dev",
     "release",
+]
+
+[tool.vulture]
+# Duplicate some of .gitignore
+exclude = [ ".venv" ]
+# Ideally we would limit the paths to the source code where we want to ignore names,
+# but Vulture does not enable this.
+ignore_names = [
+    # Sphinx
+    "autoclass_content",
+    "autoclass_content",
+    "autodoc_member_order",
+    "copybutton_exclude",
+    "extensions",
+    # pytest fixtures - we name fixtures like this for this purpose
+    "fixture_*",
+    "html_show_copyright",
+    "html_show_sourcelink",
+    "html_show_sphinx",
+    "html_theme",
+    "html_theme_options",
+    "html_title",
+    "htmlhelp_basename",
+    "intersphinx_mapping",
+    "language",
+    "linkcheck_ignore",
+    "linkcheck_retries",
+    "master_doc",
+    "nitpicky",
+    "project_copyright",
+    "pygments_style",
+    # pytest configuration
+    "pytest_collect_file",
+    "pytest_plugins",
+    "rst_prolog",
+    "source_suffix",
+    "spelling_word_list_filename",
+    "templates_path",
+    "towncrier_draft_autoversion_mode",
+    "towncrier_draft_include_empty",
+    "towncrier_draft_working_directory",
+    "warning_is_error",
 ]
 
 [tool.pyproject-fmt]
@@ -377,11 +424,6 @@ split-summary-body = false
 max-line-length = 75
 linewrap-full-docstring = true
 
-[tool.interrogate]
-fail-under = 100
-verbose = 2
-omit-covered-files = true
-
 [tool.doc8]
 max_line_length = 2000
 ignore_path = [
@@ -391,48 +433,6 @@ ignore_path = [
     "./node_modules",
     "./src/*.egg-info/",
     "./src/*/_setuptools_scm_version.txt",
-]
-
-[tool.vulture]
-# Duplicate some of .gitignore
-exclude = [ ".venv" ]
-# Ideally we would limit the paths to the source code where we want to ignore names,
-# but Vulture does not enable this.
-ignore_names = [
-    # Sphinx
-    "autoclass_content",
-    "autoclass_content",
-    "autodoc_member_order",
-    "copybutton_exclude",
-    "extensions",
-    # pytest fixtures - we name fixtures like this for this purpose
-    "fixture_*",
-    "html_show_copyright",
-    "html_show_sourcelink",
-    "html_show_sphinx",
-    "html_theme",
-    "html_theme_options",
-    "html_title",
-    "htmlhelp_basename",
-    "intersphinx_mapping",
-    "language",
-    "linkcheck_ignore",
-    "linkcheck_retries",
-    "master_doc",
-    "nitpicky",
-    "project_copyright",
-    "pygments_style",
-    # pytest configuration
-    "pytest_collect_file",
-    "pytest_plugins",
-    "rst_prolog",
-    "source_suffix",
-    "spelling_word_list_filename",
-    "templates_path",
-    "towncrier_draft_autoversion_mode",
-    "towncrier_draft_include_empty",
-    "towncrier_draft_working_directory",
-    "warning_is_error",
 ]
 
 [tool.yamlfix]
