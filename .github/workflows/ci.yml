@@ -47,9 +47,6 @@ jobs:
         env:
           UV_PYTHON: ${{ matrix.python-version }}
 
-      - uses: pre-commit-ci/lite-action@v1.1.0
-        if: always()
-
   completion-ci:
     needs: build
     runs-on: ubuntu-latest
