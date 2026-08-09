@@ -91,3 +91,54 @@ def authorization_header(
         data=string_to_sign.encode(),
     )
     return f"VWS {access_key}:{signature.decode()}"
+
+
+@beartype
+def basic_authorization_header(*, client_id: str, client_secret: str) -> str:
+    """Get an `Authorization` header for an OAuth2 token request.
+
+    The Model Target Web API does not use the VWS signature scheme which
+    `authorization_header` implements.  Instead, a token is requested from
+    ``POST /oauth2/token`` with ``grant_type=client_credentials`` and HTTP
+    Basic credentials, and the returned bearer token is then sent to the
+    dataset endpoints with `bearer_authorization_header`.
+
+    Performing the token request, and caching the returned token, are left
+    to the caller.
+
+    See https://developer.vuforia.com/library/vuforia-engine/web-api/model-target-web-api/.
+
+    Args:
+        client_id: A Model Target Web API client ID.
+        client_secret: A Model Target Web API client secret.
+
+    Returns:
+        An `Authorization` header which can be used for a request made to
+        the Model Target Web API token endpoint.
+    """
+    credentials = f"{client_id}:{client_secret}"
+    encoded_credentials = base64.b64encode(
+        s=credentials.encode(encoding="utf-8"),
+    )
+    return f"Basic {encoded_credentials.decode(encoding='ascii')}"
+
+
+@beartype
+def bearer_authorization_header(*, access_token: str) -> str:
+    """Get an `Authorization` header for a Model Target Web API request.
+
+    This is used for requests to the Model Target Web API dataset
+    endpoints, with an access token obtained from a token request made with
+    `basic_authorization_header`.
+
+    See https://developer.vuforia.com/library/vuforia-engine/web-api/model-target-web-api/.
+
+    Args:
+        access_token: An access token returned by the Model Target Web API
+            token endpoint.
+
+    Returns:
+        An `Authorization` header which can be used for a request made to
+        the Model Target Web API dataset endpoints.
+    """
+    return f"Bearer {access_token}"

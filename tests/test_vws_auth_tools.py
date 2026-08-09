@@ -150,6 +150,57 @@ def test_authorization_header_is_deterministic(
     assert len(base64.b64decode(s=signature, validate=True)) == digest_size
 
 
+def test_basic_authorization_header() -> None:
+    """The Basic Authorization header is constructed as documented."""
+    result = vws_auth_tools.basic_authorization_header(
+        client_id="my_client_id",
+        client_secret="my_client_secret",  # noqa: S106
+    )
+
+    assert result == "Basic bXlfY2xpZW50X2lkOm15X2NsaWVudF9zZWNyZXQ="
+
+
+def test_basic_authorization_header_empty_credentials() -> None:
+    """Empty credentials are still encoded with their separator."""
+    result = vws_auth_tools.basic_authorization_header(
+        client_id="",
+        client_secret="",
+    )
+
+    assert result == "Basic Og=="
+
+
+@given(client_id=st.text(), client_secret=st.text())
+def test_basic_authorization_header_encodes_utf_8(
+    *,
+    client_id: str,
+    client_secret: str,
+) -> None:
+    """Credentials, including non-ASCII ones, are UTF-8 encoded."""
+    result = vws_auth_tools.basic_authorization_header(
+        client_id=client_id,
+        client_secret=client_secret,
+    )
+
+    encoded_credentials = result.removeprefix("Basic ")
+    decoded_credentials = base64.b64decode(
+        s=encoded_credentials,
+        validate=True,
+    ).decode(encoding="utf-8")
+
+    assert decoded_credentials == f"{client_id}:{client_secret}"
+
+
+@given(access_token=st.text())
+def test_bearer_authorization_header(access_token: str) -> None:
+    """The Bearer Authorization header includes the given access token."""
+    result = vws_auth_tools.bearer_authorization_header(
+        access_token=access_token,
+    )
+
+    assert result == f"Bearer {access_token}"
+
+
 @given(content=st.text())
 def test_authorization_header_encodes_unicode_content(content: str) -> None:
     """Unicode content is equivalent to its UTF-8 encoded bytes."""
