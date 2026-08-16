@@ -1,1 +1,0 @@
-Add ``basic_authorization_header`` and ``bearer_authorization_header`` for the OAuth2 client credentials flow used by the Model Target Web API.

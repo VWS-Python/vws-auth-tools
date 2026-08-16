@@ -6,6 +6,11 @@ Changelog
 
 .. towncrier release notes start
 
+2026.08.16
+----------
+
+- Add ``basic_authorization_header`` and ``bearer_authorization_header`` for the OAuth2 client credentials flow used by the Model Target Web API.
+
 2024.07.12
 ------------
 
