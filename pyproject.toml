@@ -289,7 +289,7 @@ ignore = [
     ".checkmake-config.ini",
     ".git_archival.txt",
     ".markdownlint.json",
-    ".pre-commit-config.yaml",
+    "prek.toml",
     ".prettierrc",
     ".vale.ini",
     ".yamlfmt",
