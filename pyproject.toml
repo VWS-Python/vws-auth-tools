@@ -32,7 +32,11 @@ dynamic = [
 dependencies = [
     "beartype>=0.22.9",
 ]
-optional-dependencies.dev = [
+urls.Documentation = "https://vws-python.github.io/vws-auth-tools/"
+urls.Source = "https://github.com/VWS-Python/vws-auth-tools"
+
+[dependency-groups]
+dev = [
     "actionlint-py==1.7.12.24",
     "check-manifest==0.51",
     "deptry==0.25.1",
@@ -83,12 +87,7 @@ optional-dependencies.dev = [
     "yamlfix==1.19.1",
     "zizmor==1.30.0",
 ]
-optional-dependencies.release = [ "check-wheel-contents==0.6.3", "towncrier==26.9.0" ]
-urls.Documentation = "https://vws-python.github.io/vws-auth-tools/"
-urls.Source = "https://github.com/VWS-Python/vws-auth-tools"
-
-[dependency-groups]
-dev = []
+release = [ "check-wheel-contents==0.6.3", "towncrier==26.9.0" ]
 
 [tool.setuptools]
 packages.find.where = [
@@ -308,6 +307,13 @@ ignore = [
 optional_dependencies_dev_groups = [
     "dev",
     "release",
+]
+# torch and torchvision are listed explicitly in dev deps to allow
+# [tool.uv.sources] to redirect them to the CPU-only PyTorch index,
+# but they are not directly imported in the vws-auth-tools source code.
+per_rule_ignores.DEP002 = [
+    "torch",
+    "torchvision",
 ]
 
 [tool.vulture]
