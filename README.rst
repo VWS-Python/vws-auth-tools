@@ -118,4 +118,4 @@ See the `full documentation <https://vws-python.github.io/vws-auth-tools/>`__.
    :target: https://github.com/VWS-Python/vws-auth-tools/actions
 .. |PyPI| image:: https://badge.fury.io/py/VWS-Auth-Tools.svg
    :target: https://badge.fury.io/py/VWS-Auth-Tools
-.. |minimum-python-version| replace:: 3.13
+.. |minimum-python-version| replace:: 3.14

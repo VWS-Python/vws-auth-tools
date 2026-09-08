@@ -1,8 +1,8 @@
 """Setup for test suite."""
 
 import uuid
-from collections.abc import Generator
 from doctest import ELLIPSIS
+from typing import TYPE_CHECKING
 
 import pytest
 from mock_vws import MockVWS
@@ -13,6 +13,9 @@ from sybil.parsers.rest import (
     DocTestParser,
     PythonCodeBlockParser,
 )
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 
 @pytest.fixture(name="mock_vws")
