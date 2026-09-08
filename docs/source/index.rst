@@ -62,14 +62,11 @@ VWS and Query APIs
 Model Target Web API
 ~~~~~~~~~~~~~~~~~~~~
 
-The `Model Target Web API`_ does not use the signature scheme which
-``authorization_header`` implements.  It authenticates with OAuth2 client
-credentials: a ``POST /oauth2/token`` request with HTTP Basic credentials
-and a ``grant_type=client_credentials`` form body returns a bearer token,
-which is then sent to the dataset endpoints.
+The `Model Target Web API`_ does not use the signature scheme which ``authorization_header`` implements.
+It authenticates with OAuth2 client credentials: a ``POST /oauth2/token`` request with HTTP Basic credentials and a ``grant_type=client_credentials`` form body returns a bearer token, which is then sent to the dataset endpoints.
 
-This package builds the headers only.  Making the token request, and
-caching the returned token until it expires, are left to you.
+This package builds the headers only.
+Making the token request, and caching the returned token until it expires, are left to you.
 
 .. code-block:: python
 

@@ -66,11 +66,8 @@ VWS and Query APIs
 Model Target Web API
 ~~~~~~~~~~~~~~~~~~~~
 
-The `Model Target Web API`_ authenticates with OAuth2 client credentials
-rather than the VWS signature scheme.  This package builds the HTTP Basic
-header for the ``POST /oauth2/token`` request and the ``Bearer`` header for
-the dataset endpoints; making the token request, and caching the returned
-token, are left to you.
+The `Model Target Web API`_ authenticates with OAuth2 client credentials rather than the VWS signature scheme.
+This package builds the HTTP Basic header for the ``POST /oauth2/token`` request and the ``Bearer`` header for the dataset endpoints; making the token request, and caching the returned token, are left to you.
 
 .. code-block:: python
 
