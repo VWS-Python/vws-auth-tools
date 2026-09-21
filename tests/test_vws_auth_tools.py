@@ -3,14 +3,20 @@
 import base64
 import datetime
 import hashlib
+import os
 from zoneinfo import ZoneInfo
 
 import pytest
 from freezegun import freeze_time
-from hypothesis import given
+from hypothesis import given, settings
 from hypothesis import strategies as st
 
 import vws_auth_tools
+
+_HYPOTHESIS_BACKEND = os.environ.get(
+    key="HYPOTHESIS_BACKEND",
+    default="hypothesis",
+)
 
 
 def test_rfc_1123_date() -> None:
@@ -103,6 +109,7 @@ def test_authorization_header_empty_content(
     assert result == "VWS my_access_key:XXvKyRyMkwS8/1P1WLQ0duqNpKs="
 
 
+@settings(backend=_HYPOTHESIS_BACKEND, deadline=None)
 @given(
     access_key=st.text(),
     secret_key=st.text(),
@@ -170,6 +177,7 @@ def test_basic_authorization_header_empty_credentials() -> None:
     assert result == "Basic Og=="
 
 
+@settings(backend=_HYPOTHESIS_BACKEND)
 @given(client_id=st.text(), client_secret=st.text())
 def test_basic_authorization_header_encodes_utf_8(
     *,
@@ -191,6 +199,7 @@ def test_basic_authorization_header_encodes_utf_8(
     assert decoded_credentials == f"{client_id}:{client_secret}"
 
 
+@settings(backend=_HYPOTHESIS_BACKEND)
 @given(access_token=st.text())
 def test_bearer_authorization_header(access_token: str) -> None:
     """The Bearer Authorization header includes the given access token."""
@@ -201,6 +210,7 @@ def test_bearer_authorization_header(access_token: str) -> None:
     assert result == f"Bearer {access_token}"
 
 
+@settings(backend=_HYPOTHESIS_BACKEND)
 @given(content=st.text())
 def test_authorization_header_encodes_unicode_content(content: str) -> None:
     """Unicode content is equivalent to its UTF-8 encoded bytes."""
