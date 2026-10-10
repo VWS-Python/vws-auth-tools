@@ -30,7 +30,7 @@ dynamic = [
     "version",
 ]
 dependencies = [
-    "beartype>=0.22.9",
+    "beartype>=0.23.0",
 ]
 urls.Documentation = "https://vws-python.github.io/vws-auth-tools/"
 urls.Source = "https://github.com/VWS-Python/vws-auth-tools"
@@ -38,7 +38,7 @@ urls.Source = "https://github.com/VWS-Python/vws-auth-tools"
 [dependency-groups]
 dev = [
     "actionlint-py==1.7.12.25",
-    "beartype==0.23.0rc2",
+    "beartype==0.23.0",
     "check-manifest==0.51",
     "deptry==0.25.1",
     "doc8==2.0.0",
