@@ -1,7 +1,7 @@
 """Tests for authorization tools."""
 
 import base64
-import datetime
+import datetime as dt
 import hashlib
 from zoneinfo import ZoneInfo
 
@@ -27,7 +27,7 @@ def test_rfc_1123_date() -> None:
     ```
     """
     not_gmt_timezone = ZoneInfo(key="America/New_York")
-    frozen_time = datetime.datetime(
+    frozen_time = dt.datetime(
         year=2015,
         month=2,
         day=5,
