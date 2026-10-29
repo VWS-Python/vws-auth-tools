@@ -8,7 +8,8 @@ from doctest import ELLIPSIS
 
 import pytest
 from mock_vws import MockVWS
-from mock_vws.database import CloudDatabase
+from mock_vws.database import VuMarkDatabase
+from mock_vws.target import VuMarkTarget
 from sybil import Sybil
 from sybil.parsers.rest import (
     CaptureParser,
@@ -27,20 +28,17 @@ def fixture_mock_vws(
     """
     server_access_key = uuid.uuid4().hex
     server_secret_key = uuid.uuid4().hex
-    client_access_key = uuid.uuid4().hex
-    client_secret_key = uuid.uuid4().hex
+    target = VuMarkTarget(name="example-vumark")
 
-    database = CloudDatabase(
+    database = VuMarkDatabase(
         server_access_key=server_access_key,
         server_secret_key=server_secret_key,
-        client_access_key=client_access_key,
-        client_secret_key=client_secret_key,
+        vumark_targets={target},
     )
 
     monkeypatch.setenv(name="VWS_SERVER_ACCESS_KEY", value=server_access_key)
     monkeypatch.setenv(name="VWS_SERVER_SECRET_KEY", value=server_secret_key)
-    monkeypatch.setenv(name="VWS_CLIENT_ACCESS_KEY", value=client_access_key)
-    monkeypatch.setenv(name="VWS_CLIENT_SECRET_KEY", value=client_secret_key)
+    monkeypatch.setenv(name="VUMARK_TARGET_ID", value=target.target_id)
     monkeypatch.setenv(
         name="VWS_MODEL_TARGET_CLIENT_ID",
         value=uuid.uuid4().hex,
@@ -51,7 +49,7 @@ def fixture_mock_vws(
     )
     # We use a low processing time so that tests run quickly.
     with MockVWS(processing_time_seconds=0.2) as mock:
-        mock.add_cloud_database(cloud_database=database)
+        mock.add_vumark_database(vumark_database=database)
         yield
 
 
