@@ -49,15 +49,12 @@ def authorization_header(
     See https://developer.vuforia.com/library/web-api/vuforia-web-api-authentication.
 
     Args:
-        access_key: A VWS server or client access key.
-        secret_key: A VWS server or client secret key.
+        access_key: A VuMark database server access key.
+        secret_key: A VuMark database server secret key.
         method: The HTTP method which will be used in the request.
         content: The request body which will be used in the request.
         content_type: The `Content-Type` header which is expected by
-            endpoint. This does not necessarily have to match the
-            `Content-Type` sent in the headers. In particular, for the query
-            API, this must be set to `multipart/form-data` but the header must
-            include the boundary.
+            endpoint, matching the `Content-Type` sent in the headers.
         date: The current date which must exactly match the date sent in the
             `Date` header.
         request_path: The path to the endpoint which will be used in the

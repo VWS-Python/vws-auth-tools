@@ -13,13 +13,14 @@ This is tested on Python |minimum-python-version|\+.
 Example usage
 -------------
 
-VWS and Query APIs
-~~~~~~~~~~~~~~~~~~
+VuMark Generation API
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
-   """Make a request to the VWS API."""
+   """Generate a VuMark instance."""
 
+   import json
    import os
    from http import HTTPStatus
    from urllib.parse import urljoin
@@ -30,16 +31,17 @@ VWS and Query APIs
 
    access_key = os.environ["VWS_SERVER_ACCESS_KEY"]
    secret_key = os.environ["VWS_SERVER_SECRET_KEY"]
-   request_path = "/targets"
-   content = b""
-   method = "GET"
+   target_id = os.environ["VUMARK_TARGET_ID"]
+   request_path = f"/targets/{target_id}/instances"
+   content = json.dumps(obj={"instance_id": "123"}).encode()
+   method = "POST"
    formatted_date = rfc_1123_date()
    authorization_header_value = authorization_header(
        access_key=access_key,
        secret_key=secret_key,
        method=method,
        content=content,
-       content_type="",
+       content_type="application/json",
        date=formatted_date,
        request_path=request_path,
    )
@@ -47,6 +49,8 @@ VWS and Query APIs
    headers = {
        "Authorization": authorization_header_value,
        "Date": formatted_date,
+       "Content-Type": "application/json",
+       "Accept": "image/png",
    }
 
    response = requests.request(
